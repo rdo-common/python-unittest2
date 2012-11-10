@@ -1,19 +1,14 @@
-%if ! (0%{?fedora} > 12 || 0%{?rhel} > 5)
-%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
-%endif
-
 %global srcname unittest2
 
 Name:           python-%{srcname}
 Version:        0.5.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Backport of new unittest features for Python 2.7 to Python 2.4+
 
 Group:          Development/Languages
 License:        BSD
 URL:            http://pypi.python.org/pypi/unittest2
 Source0:        http://pypi.python.org/packages/source/u/%{srcname}/%{srcname}-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
@@ -38,23 +33,14 @@ standard unittest test running infrastructure. Not all of the new
 features in unittest2 will work with the standard unittest test loaders
 and runners however.
 
-
 %prep
 %setup -q -n %{srcname}-%{version}
-
 
 %build
 %{__python} setup.py build
 
-
 %install
-rm -rf %{buildroot}
 %{__python} setup.py install --skip-build --root %{buildroot}
-
-
-%clean
-rm -rf %{buildroot}
-
 
 %check
 #Failing test deactivated
@@ -63,16 +49,16 @@ nosetests test_new_tests.py
 #nosetests test_unittest2.py
 nosetests test_unittest2_with.py
 
-
 %files
-%defattr(-,root,root,-)
 %doc README.txt
 %{_bindir}/unit2*
 %{python_sitelib}/%{srcname}/
 %{python_sitelib}/%{srcname}*.egg-info
 
-
 %changelog
+* Sat Nov 10 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.5.1-5
+- Updated to match new guidlines
+
 * Sat Jul 21 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.1-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
@@ -82,13 +68,13 @@ nosetests test_unittest2_with.py
 * Wed Feb 09 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
-* Wed Jul 21 2010 Fabian Affolter <fabian@bernewireless.net> - 0.5.1-1
+* Wed Jul 21 2010 Fabian Affolter <mail@fabian-affolter.ch> - 0.5.1-1
 - Updated to new upstream version 0.5.1
 
-* Sat Jul 03 2010 Fabian Affolter <fabian@bernewireless.net> - 0.5.0-1
+* Sat Jul 03 2010 Fabian Affolter <mail@fabian-affolter.ch> - 0.5.0-1
 - Removed build cond for check section
 - Switched to python2-devel
 - Updated to new upstream version 0.5.0
 
-* Sat Jul 03 2010 Fabian Affolter <fabian@bernewireless.net> - 0.1.4-1
+* Sat Jul 03 2010 Fabian Affolter <mail@fabian-affolter.ch> - 0.1.4-1
 - Initial package
