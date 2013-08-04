@@ -2,7 +2,7 @@
 
 Name:           python-%{srcname}
 Version:        0.5.1
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Backport of new unittest features for Python 2.7 to Python 2.4+
 
 Group:          Development/Languages
@@ -56,6 +56,9 @@ nosetests test_unittest2_with.py
 %{python_sitelib}/%{srcname}*.egg-info
 
 %changelog
+* Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.1-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.1-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
