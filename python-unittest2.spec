@@ -2,10 +2,9 @@
 
 Name:           python-%{srcname}
 Version:        0.5.1
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Backport of new unittest features for Python 2.7 to Python 2.4+
 
-Group:          Development/Languages
 License:        BSD
 URL:            http://pypi.python.org/pypi/unittest2
 Source0:        http://pypi.python.org/packages/source/u/%{srcname}/%{srcname}-%{version}.tar.gz
@@ -37,10 +36,10 @@ and runners however.
 %setup -q -n %{srcname}-%{version}
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %install
-%{__python} setup.py install --skip-build --root %{buildroot}
+%{__python2} setup.py install --skip-build --root %{buildroot}
 
 %check
 #Failing test deactivated
@@ -52,10 +51,13 @@ nosetests test_unittest2_with.py
 %files
 %doc README.txt
 %{_bindir}/unit2*
-%{python_sitelib}/%{srcname}/
-%{python_sitelib}/%{srcname}*.egg-info
+%{python2_sitelib}/%{srcname}/
+%{python2_sitelib}/%{srcname}*.egg-info
 
 %changelog
+* Mon Oct 28 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.5.1-8
+- Python macro update
+
 * Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.1-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
