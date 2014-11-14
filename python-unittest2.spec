@@ -4,7 +4,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -106,5 +106,8 @@ popd
 %endif # with_python3
 
 %changelog
+* Fri Nov 14 2014 Slavek Kabrda <bkabrda@redhat.com> - 0.8.0-2
+- Bump to avoid collision with previously blocked 0.8.0-1
+
 * Mon Nov 10 2014 Slavek Kabrda <bkabrda@redhat.com> - 0.8.0-1
 - Unretire the package, create a fresh specfile
