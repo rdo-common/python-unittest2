@@ -1,11 +1,11 @@
 # Created by pyp2rpm-1.1.1
 %global pypi_name unittest2
 %global with_python3 1
-%global bootstrap_traceback2 1
+%global bootstrap_traceback2 0
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -125,6 +125,9 @@ popd
 %endif # with_python3
 
 %changelog
+* Sat Nov 14 2015 Toshio Kuratomi <toshio@fedoraproject.org> - - 1.1.0-2
+- traceback2 has been bootstrapped.  Remove the bootstrapping conditional
+
 * Thu Nov 12 2015 bkabrda <bkabrda@redhat.com> - 1.1.0-1
 - Update to 1.1.0
 - Bootstrap dependency on traceback2
