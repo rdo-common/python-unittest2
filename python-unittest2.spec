@@ -5,7 +5,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -15,6 +15,10 @@ Source0:        https://pypi.python.org/packages/source/u/%{pypi_name}/%{pypi_na
 Patch0:         unittest2-1.1.0-remove-argparse-from-requires.patch
 # we only apply this if bootstrap_traceback2 == 1
 Patch1:         unittest2-1.1.0-remove-traceback2-from-requires.patch
+# this patch backports tests from Python 3.5, that weren't yet merged, thus the tests are failing
+#  (the test is modified to also pass on Python < 3.5)
+#  TODO: submit upstream
+Patch2:         unittest2-1.1.0-backport-tests-from-py3.5.patch
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
@@ -63,6 +67,7 @@ framework in Python 2.7 and onwards. It is tested to run on Python 2.6, 2.7,
 rm -rf %{pypi_name}.egg-info
 
 %patch0 -p0
+%patch2 -p0
 %if 0%{?bootstrap_traceback2}
 %patch1 -p0
 %endif
@@ -125,6 +130,9 @@ popd
 %endif # with_python3
 
 %changelog
+* Sun Nov 15 2015 Slavek Kabrda <bkabrda@redhat.com> - 1.1.0-3
+- Fix tests on Python 3.5
+
 * Sat Nov 14 2015 Toshio Kuratomi <toshio@fedoraproject.org> - - 1.1.0-2
 - traceback2 has been bootstrapped.  Remove the bootstrapping conditional
 
