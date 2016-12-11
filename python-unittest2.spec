@@ -1,11 +1,11 @@
 # Created by pyp2rpm-1.1.1
 %global pypi_name unittest2
 %global with_python3 1
-%global bootstrap_traceback2 0
+%global bootstrap_traceback2 1
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -145,6 +145,9 @@ popd
 
 
 %changelog
+* Fri Dec 09 2016 Charalampos Stratakis <cstratak@redhat.com> - 1.1.0-7
+- Rebuild for Python 3.6
+
 * Tue Jul 19 2016 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.0-6
 - https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
 
