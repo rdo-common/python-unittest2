@@ -1,11 +1,11 @@
 # Created by pyp2rpm-1.1.1
 %global pypi_name unittest2
 %global with_python3 1
-%global bootstrap_traceback2 1
+%global bootstrap_traceback2 0
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -145,6 +145,9 @@ popd
 
 
 %changelog
+* Mon Dec 12 2016 Charalampos Stratakis <cstratak@redhat.com> - 1.1.0-8
+- Disable bootstrap method
+
 * Fri Dec 09 2016 Charalampos Stratakis <cstratak@redhat.com> - 1.1.0-7
 - Rebuild for Python 3.6
 
