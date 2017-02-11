@@ -5,7 +5,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -145,6 +145,9 @@ popd
 
 
 %changelog
+* Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.0-9
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Mon Dec 12 2016 Charalampos Stratakis <cstratak@redhat.com> - 1.1.0-8
 - Disable bootstrap method
 
