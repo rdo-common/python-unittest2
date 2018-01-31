@@ -5,7 +5,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -32,14 +32,14 @@ framework in Python 2.7 and onwards. It is tested to run on Python 2.6, 2.7,
 Summary:        The new features in unittest backported to Python 2.4+
 %{?python_provide:%python_provide python2-%{pypi_name}}
 BuildRequires:  python2-devel
-BuildRequires:  python-setuptools
-BuildRequires:  python-six
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-six
 %if ! 0%{?bootstrap_traceback2}
-BuildRequires:  python-traceback2
-Requires:       python-traceback2
+BuildRequires:  python2-traceback2
+Requires:       python2-traceback2
 %endif
-Requires:       python-setuptools
-Requires:       python-six
+Requires:       python2-setuptools
+Requires:       python2-six
 
 
 %description -n python2-%{pypi_name}
@@ -145,6 +145,10 @@ popd
 
 
 %changelog
+* Wed Jan 31 2018 Iryna Shcherbina <ishcherb@redhat.com> - 1.1.0-11
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.0-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
