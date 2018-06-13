@@ -1,11 +1,11 @@
 # Created by pyp2rpm-1.1.1
 %global pypi_name unittest2
 %global with_python3 1
-%global bootstrap_traceback2 0
+%global bootstrap_traceback2 1
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        12%{?dist}
+Release:        13%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -145,6 +145,9 @@ popd
 
 
 %changelog
+* Wed Jun 13 2018 Miro Hrončok <mhroncok@redhat.com> - 1.1.0-13
+- Bootstrap for Python 3.7
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.0-12
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
