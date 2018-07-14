@@ -5,7 +5,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        14%{?dist}
+Release:        15%{?dist}
 Summary:        The new features in unittest backported to Python 2.4+
 
 License:        BSD
@@ -145,6 +145,9 @@ popd
 
 
 %changelog
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.0-15
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Wed Jun 13 2018 Miro Hrončok <mhroncok@redhat.com> - 1.1.0-14
 - Rebuilt for Python 3.7
 
